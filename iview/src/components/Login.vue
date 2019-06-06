@@ -1,5 +1,5 @@
 <template>
-  <div class="login">
+  <div class="login"> 
 
     <i-form ref="formLogin" :model="formLogin" :rules="formLoginRules" class="card-box">
       <FormItem class="formLogin-title">
