@@ -43,7 +43,7 @@
             <Button type="text">
               <Icon type="md-menu" size="32"/>
             </Button>
-            <div class="userinfo" >
+            <div class="userinfo">
               <Dropdown>
                 <a href="javascript:void(0)">
                   {{userName}}
@@ -56,6 +56,16 @@
               </Dropdown>
             </div>
           </div>
+          <Breadcrumb>
+            <BreadcrumbItem to="/table">首页</BreadcrumbItem>
+            <BreadcrumbItem to="/table/manage">Components</BreadcrumbItem>
+          </Breadcrumb>
+          <div class="layout-content">
+            <div class="layout-content-main">
+              <router-view></router-view>
+            </div>
+          </div>
+        <Index></Index>  
         </Col>
       </Row>
     </div>
@@ -64,25 +74,31 @@
 
 
 <script>
+import Alert from '@/components/common/Alert'
+import Index from '@/components/detail/Index'
 export default {
   name: "Home",
   data() {
     return {
       spanLeft: 5,
       spanRight: 19,
-      userName:''
+      userName: ""
     };
   },
-  created() {
-    this.userName = JSON.parse(sessionStorage.getItem('user'));
+  components:{
+    Alert,
+    Index
   },
+
+  created() {
+    this.userName = JSON.parse(sessionStorage.getItem("user"));
+  }
   // computed: {
   //        userName () {
   //           return sessionStorage.getItem('user')
   //       }
-    
+
   // },
-  
 };
 </script>
 
@@ -104,16 +120,15 @@ export default {
   text-align: center;
   color: grey;
 }
-.userinfo{
+.userinfo {
   float: right;
   margin: 5px 20px;
 }
-.ivu-col-span-19{
-  background-color: #eeeeee
+.ivu-col-span-19 {
+  background-color: #eeeeee;
 }
-.layout-header{
+.layout-header {
   background-color: #fff;
   padding: 10px 0;
 }
-
 </style>
